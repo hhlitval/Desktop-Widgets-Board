@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,28 @@ namespace Desktop_Widgets_Board
         public MainWindow()
         {
             InitializeComponent();
+            calendar.SelectedDate = DateTime.Today;
+        }
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = "http://github.com/hhlitval",
+                UseShellExecute = true
+            });
         }
     }
 }
