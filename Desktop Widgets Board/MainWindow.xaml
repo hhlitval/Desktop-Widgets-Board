@@ -5,30 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Desktop_Widgets_Board"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Height="1020" Width="450" WindowStartupLocation="CenterScreen" 
+        Height="1020" Width="480" WindowStartupLocation="CenterScreen" 
         AllowsTransparency="True" WindowStyle="None" Background="Transparent" 
-        >
+        FontFamily="Nirmala UI" ResizeMode="NoResize" Topmost="True">
+        
     <Grid MouseDown="Border_MouseDown">
         <Grid.RowDefinitions>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="224*"/>
-            <RowDefinition Height="41*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="224"/>
+            <RowDefinition Height="41"/>
             <RowDefinition Height="306"/>
-            <RowDefinition Height="204*"/>
-            <RowDefinition Height="204*"/>
+            <RowDefinition Height="204"/>
+            <RowDefinition Height="170"/>
         </Grid.RowDefinitions>
-
-        <!-- TopMenu -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Click="Button_Click" HorizontalAlignment="Right" 
-                    Margin="5 0 5 0" Style="{StaticResource quickPanelButtons}">
-                <fa:ImageAwesome Icon="PowerOff" Style="{StaticResource icon}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- App Control Panel -->
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+            <Button Margin="0 10 10 5" Click="Button_Click" Style="{StaticResource quickPanelButton}">
+                <icon:PackIconMaterial Kind="Close" Style="{StaticResource iconAppControl}"/>
             </Button>
-        </StackPanel>
+            <Button Margin="0 10 10 5" Style="{StaticResource quickPanelButton}">
+                <icon:PackIconMaterial Kind="WindowMinimize" Style="{StaticResource iconAppControl}"/>
+            </Button>
+            <Button Margin="0 5 10 5" Style="{StaticResource quickPanelButton}">
+                <icon:PackIconMaterial Kind="Cog" Style="{StaticResource iconAppControl}"/>
+            </Button>
+        </StackPanel>       
 
         <!-- Weather widget -->
-        <Border Grid.Row="1" Style="{StaticResource weatherWidgetBorder}">
+        <Border Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource weatherWidgetBorder}">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#0582ca"/>
@@ -48,6 +59,7 @@
                     <RowDefinition Height="45"/>
                     <RowDefinition Height="15"/>
                     <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="20"/>
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
 
@@ -107,37 +119,37 @@
             </Grid>
         </Border>
 
-        <!-- Quick Start Panel -->
-        <Border Grid.Row="2" Background="#003566" CornerRadius="15" Margin="10 0 10 0">
-        <StackPanel  Orientation="Horizontal">
+        <!-- Quick Access Panel -->
+        <Border Grid.Row="2" Background="#023047" CornerRadius="0 0 15 15" Margin="10 0 10 0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
-            <Button Margin="20 0 15 0" Click="Button_Click_1"
-                    Style="{StaticResource quickPanelButtons}">
+            <Button Click="Button_Click_1"
+                    Style="{StaticResource quickPanelButton}">
                 <fa:ImageAwesome Icon="Github" Style="{StaticResource icon}"/>
             </Button>
 
-            <Button Style="{StaticResource quickPanelButtons}" > 
+            <Button Style="{StaticResource quickPanelButton}" > 
                 <fa:ImageAwesome Icon="Xing" Style="{StaticResource icon}"/>
             </Button>
-            <Button Style="{StaticResource quickPanelButtons}">
+            <Button Style="{StaticResource quickPanelButton}">
                 <fa:ImageAwesome Icon="Linkedin" Style="{StaticResource icon}"/>
             </Button>
-            <Button Style="{StaticResource quickPanelButtons}">
-                <fa:ImageAwesome Icon="YoutubePlay" Style="{StaticResource icon}" Margin="0 5 0 0" />
+            <Button Style="{StaticResource quickPanelButton}">
+                <fa:ImageAwesome Icon="YoutubePlay" Style="{StaticResource icon}" Margin="0 4 0 0" />
             </Button>
         </StackPanel>
         </Border>
 
         <!-- Appointment Calendar widget -->
-        <Border Grid.Row="3" Style="{StaticResource widgetBorder}">
+        <Border Grid.Row="3" Style="{StaticResource widgetBorder}" Margin="10 20 10 10">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition Height="2.5*"/>
+                    <RowDefinition Height="2.8*"/>
                 </Grid.RowDefinitions>
 
                 <Border CornerRadius="0 15 15 0" Grid.Column="1" Grid.RowSpan="2" 
@@ -152,11 +164,11 @@
                             <Label Content="May" FontSize="20" Style="{StaticResource calendarDateLabel}" />
                             <Label Content="Monday" Foreground="#6c757d" Style="{StaticResource calendarDateLabel}"/>
                         </StackPanel>
-                        <Button/>
-                        <Button/>
                     </StackPanel>
                 </StackPanel>
-                <Calendar x:Name="calendar" Grid.Row="1" />
+                <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" 
+                          CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" 
+                          Style="{DynamicResource CalendarStyle1}" x:Name="calendar" Grid.Row="1" />
             </Grid>
         </Border>
 
@@ -167,13 +179,87 @@
                     <RowDefinition Height="0.3*"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Border Background="#ffd500" CornerRadius="15 15 0 0" />
-                <TextBlock Text="To-Do List" Foreground="#202020" Margin="20 0 0 0"
-                           VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="#fdc921" CornerRadius="15 15 0 0" Grid.ColumnSpan="2" />
+                                 
+                    <TextBlock Text="Todo" Foreground="#fffdf7" Margin="20 0 0 0"
+                           VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"  />                
+                
+                    <icon:PackIconMaterial Grid.Column="1" Kind="Plus" Foreground="#fef9f9" Width="18"
+                                     VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    
+                
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+                        <icon:PackIconMaterial Kind="CheckCircle" Width="14" Margin="10 0 0 0"
+                                         Foreground="Gray" VerticalAlignment="Center" />
+                        <TextBlock Text="Steuererklärung abgeben" FontSize="16" Foreground="#1e1b18" Margin="10 0 0 0" 
+                                   VerticalAlignment="Center" FontFamily="Segoi UI"
+                                   TextDecorations="Strikethrough"/>
+                        </StackPanel>
+                    <icon:PackIconMaterial Grid.Column="2" Grid.Row="0" Kind="DotsVertical" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"/>
+
+                    <Separator VerticalAlignment="Bottom" Margin="40 0 0 0" Background="#dee2e6"/>
+
+                    <StackPanel Grid.Row="1"  Orientation="Horizontal" Margin="10 0 0 0">
+                        <icon:PackIconMaterial Kind="CircleOutline" Width="14" Margin="10 0 0 0"
+                                         Foreground="Gray" VerticalAlignment="Center" />
+                        <TextBlock Text="Hausmeister anrufen" FontSize="16" Foreground="#1e1b18" Margin="10 0 0 0" 
+                                   VerticalAlignment="Center" FontFamily="Segoi UI"  FontWeight="SemiBold"/>
+                        </StackPanel>
+                    <icon:PackIconMaterial Grid.Column="2" Grid.Row="1" Kind="DotsVertical" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"/>
+
+                    <Separator Grid.Row="1" VerticalAlignment="Bottom" Margin="40 0 0 0" Background="#dee2e6"/>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10 0 0 0">
+                        <icon:PackIconMaterial Kind="CircleOutline" Width="14" Margin="10 0 0 0"
+                                         Foreground="Gray" VerticalAlignment="Center" />
+                        <TextBlock Text="Bücher zurückgeben" FontSize="16" Foreground="#1e1b18" Margin="10 0 0 0" 
+                                   VerticalAlignment="Center" FontFamily="Segoi UI"  FontWeight="SemiBold"/>
+                        </StackPanel>
+                    <icon:PackIconMaterial Grid.Column="2" Grid.Row="2" Kind="DotsVertical" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"/>
+
+                    <!--<CheckBox Margin="15 0 0 0" Style="{DynamicResource CheckBoxStyle1}" Grid.Row="4"></CheckBox>-->
+
+                </Grid>
             </Grid>
         </Border>
         <!-- Audo Player widget -->
-        <Border Grid.Row="5" Style="{StaticResource widgetBorder}"/>
+        <Border Grid.Row="5" Style="{StaticResource widgetBorder}" Background="#393d3f">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
+                <icon:PackIconMaterial Kind="MusicCircle" Background="Transparent" Foreground="White" Margin="20 0 0 0"
+                                       VerticalAlignment="Center"/>
+                <Border Grid.Row="1" CornerRadius="15" Background="#46494c" Margin="20 0 0 20">
+                <Image  Source="D:\Metal forever\Whoredom Rife\2016 - Whoredom Rife (EP)\Cover2.jpg" 
+                       Margin="5" HorizontalAlignment="Left" Width="Auto"/>
+                </Border>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
