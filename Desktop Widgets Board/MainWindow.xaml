@@ -18,7 +18,7 @@
             <RowDefinition Height="41"/>
             <RowDefinition Height="306"/>
             <RowDefinition Height="204"/>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="204"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="450"/>
@@ -94,10 +94,15 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="0" Content="Today" />
+                        <Image Grid.Row="1" Grid.Column="0" Source="C:\Users\sasha\Desktop\sunny.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="1" Content="Mon" />
+                        <Image Grid.Row="1" Grid.Column="1" Source="C:\Users\sasha\Desktop\sunny.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="2" Content="Tue" />
+                        <Image Grid.Row="1" Grid.Column="2" Source="C:\Users\sasha\Desktop\changing.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="3" Content="Wed" />
+                        <Image Grid.Row="1" Grid.Column="3" Source="C:\Users\sasha\Desktop\changing.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="4" Content="Thu" />
+                        <Image Grid.Row="1" Grid.Column="4" Source="C:\Users\sasha\Desktop\rainy.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="5" Content="Fri" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="6" Content="Sat" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="7" Content="Sun" />
@@ -120,7 +125,7 @@
         </Border>
 
         <!-- Quick Access Panel -->
-        <Border Grid.Row="2" Background="#023047" CornerRadius="0 0 15 15" Margin="10 0 10 0">
+        <Border Grid.Row="2" Background="#546a7b" CornerRadius="0 0 15 15" Margin="10 0 10 0">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
             <Button Click="Button_Click_1"
@@ -141,7 +146,7 @@
         </Border>
 
         <!-- Appointment Calendar widget -->
-        <Border Grid.Row="3" Style="{StaticResource widgetBorder}" Margin="10 20 10 10">
+        <Border Grid.Row="3" Style="{StaticResource widgetBorder}" Margin="10 20 10 10" BorderThickness="0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
@@ -153,7 +158,7 @@
                 </Grid.RowDefinitions>
 
                 <Border CornerRadius="0 15 15 0" Grid.Column="1" Grid.RowSpan="2" 
-                        Background="#d8315b"/>
+                        Background="#da627d"/>
                 <StackPanel Grid.Row="0" Grid.Column="0" >
                     <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
                         <Label x:Name="label" Foreground="#1e1b18" FontSize="50" 
@@ -183,7 +188,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
-                <Border Background="#fdc921" CornerRadius="15 15 0 0" Grid.ColumnSpan="2" />
+                <Border Background="#fca311" CornerRadius="15 15 0 0" Grid.ColumnSpan="2" />
                                  
                     <TextBlock Text="Todo" Foreground="#fffdf7" Margin="20 0 0 0"
                            VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"  />                
@@ -249,16 +254,35 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="150"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <icon:PackIconMaterial Kind="MusicCircle" Background="Transparent" Foreground="White" Margin="20 0 0 0"
-                                       VerticalAlignment="Center"/>
-                <Border Grid.Row="1" CornerRadius="15" Background="#46494c" Margin="20 0 0 20">
-                <Image  Source="D:\Metal forever\Whoredom Rife\2016 - Whoredom Rife (EP)\Cover2.jpg" 
-                       Margin="5" HorizontalAlignment="Left" Width="Auto"/>
-                </Border>
+                                       VerticalAlignment="Center" Height="20" Width="20"/>
+                <icon:PackIconMaterial Grid.Column="1" Kind="FolderOpenOutline" Background="Transparent" Foreground="White" Margin="0 0 10 0"
+                                       VerticalAlignment="Center" Height="20" Width="20" HorizontalAlignment="Right"/>
+                <Image Grid.Row="1"  Source="/Images/skalmold.jpg" VerticalAlignment="Top"
+                       Margin="20 0 0 20" HorizontalAlignment="Left" Width="Auto"/>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Miðgarðsormur " Margin="10 0 0 0" FontSize="16" FontWeight="SemiBold" 
+                           Foreground="White"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Skálmöld" Margin="10 0 0 0" FontSize="14" 
+                           Foreground="#dee2e6"/>
+                        <ProgressBar Margin="10 50 20 0" Value="55" Foreground="#e5383b"/>
+                        <StackPanel Orientation="Horizontal" Margin="10 15 0 20" HorizontalAlignment="Center">
+                            <icon:PackIconMaterial Kind="Shuffle" Foreground="White" Margin="0 0 20 0" />
+                            <icon:PackIconMaterial Kind="SkipBackward" Foreground="White" Margin="0 0 20 0"/>
+                            <icon:PackIconMaterial Kind="Play" Width="20" Foreground="White" Margin="0 0 20 0" />
+                            <icon:PackIconMaterial Kind="SkipForward" Foreground="White" Margin="0 0 20 0" />                            
+                            <icon:PackIconMaterial Kind="PlaylistMusic" Foreground="White" Margin="0 0 20 0" />
+                            <icon:PackIconMaterial Kind="VolumeHigh" Foreground="White" Margin="0 0 20 0" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
             </Grid>
         </Border>
     </Grid>
