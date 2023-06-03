@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +22,10 @@ namespace Desktop_Widgets_Board
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
-            InitializeComponent();
-            calendar.SelectedDate = DateTime.Today;
+            InitializeComponent();  
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {

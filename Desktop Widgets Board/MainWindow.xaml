@@ -3,22 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Desktop_Widgets_Board"
+        xmlns:uc="clr-namespace:Desktop_Widgets_Board.UserControls"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Height="1020" Width="480" WindowStartupLocation="CenterScreen" 
+        Height="1000" Width="480" WindowStartupLocation="CenterScreen" 
         AllowsTransparency="True" WindowStyle="None" Background="Transparent" 
         FontFamily="Nirmala UI" ResizeMode="NoResize" Topmost="True">
         
     <Grid MouseDown="Border_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="224"/>
-            <RowDefinition Height="41"/>
-            <RowDefinition Height="306"/>
-            <RowDefinition Height="204"/>
-            <RowDefinition Height="204"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="230"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="450"/>
@@ -140,21 +141,31 @@
         <!-- Quick Access Panel -->
         <Border Grid.Row="2" Background="#006ba6" CornerRadius="0 0 15 15" Margin="10 0 10 0">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-
+    
             <Button Click="Button_Click_1"
                     Style="{StaticResource quickPanelButton}">
                 <fa:ImageAwesome Icon="Github" Style="{StaticResource icon}"/>
             </Button>
 
-            <Button Style="{StaticResource quickPanelButton}" > 
+                <Button Style="{StaticResource quickPanelButton}">
+                    <fa:ImageAwesome Icon="YoutubePlay" Style="{StaticResource icon}" Margin="0 4 0 0" />
+                </Button>
+
+                
+
+                <Button Style="{StaticResource quickPanelButton}">
+                    <fa:ImageAwesome Icon="Amazon" Style="{StaticResource icon}" Margin="0 4 0 0" />
+                </Button>
+
+                
+
+                <Button Style="{StaticResource quickPanelButton}" > 
                 <fa:ImageAwesome Icon="Xing" Style="{StaticResource icon}"/>
             </Button>
             <Button Style="{StaticResource quickPanelButton}">
                 <fa:ImageAwesome Icon="Linkedin" Style="{StaticResource icon}"/>
             </Button>
-            <Button Style="{StaticResource quickPanelButton}">
-                <fa:ImageAwesome Icon="YoutubePlay" Style="{StaticResource icon}" Margin="0 4 0 0" />
-            </Button>
+            
         </StackPanel>
         </Border>
 
@@ -171,22 +182,44 @@
                 </Grid.RowDefinitions>
 
                 <Border CornerRadius="0 15 15 0" Grid.Column="1" Grid.RowSpan="2" 
-                        Background="#c2242d"/>
+                        Background="#4ba3c3"/>
                 <StackPanel Grid.Row="0" Grid.Column="0" >
                     <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
                         <Label x:Name="label" Foreground="#1e1b18" FontSize="50" 
-                       Content="30" ContentStringFormat="dd" />
+                       Content="3" ContentStringFormat="dd" />
                         <!--Content="{Binding ElementName=calendar, Path=SelectedDate, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"-->
 
                         <StackPanel Orientation="Vertical" Margin="0" VerticalAlignment="Center">
-                            <Label Content="May" FontSize="20" Style="{StaticResource calendarDateLabel}" />
-                            <Label Content="Monday" Foreground="#6c757d" Style="{StaticResource calendarDateLabel}"/>
+                            <Label Content="June" FontSize="20" Style="{StaticResource calendarDateLabel}" />
+                            <Label Content="Saturday" Foreground="#6c757d" Style="{StaticResource calendarDateLabel}"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
-                <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" 
-                          CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" 
-                          Style="{DynamicResource CalendarStyle1}" x:Name="calendar" Grid.Row="1" />
+                <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" SelectionMode="MultipleRange"
+                          CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" xml:lang="en-US"
+                          Style="{DynamicResource CalendarStyle1}" x:Name="calendar" Grid.Row="1">
+                    <Calendar.SelectedDates>
+                        <sys:DateTime>6/19/2023</sys:DateTime>
+                        <sys:DateTime>6/30/2023</sys:DateTime>
+                    </Calendar.SelectedDates>
+                </Calendar>
+                <Grid Grid.Column="1" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <icon:PackIconMaterial Grid.Column="1" Kind="Plus" Foreground="#003459" Width="18"
+                                     VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"/>
+                    <uc:CalendarItem Grid.Row="1" Margin="10 0" ItemTitle="Job interview" ItemDate="19.06.23 | 14:30" ItemColor="#ba324f" />
+                    <uc:CalendarItem Grid.Row="2" Margin="10 0" ItemTitle="Doctor appointment" ItemDate="30.06.23 | 10:10" ItemColor="#ffd166"/>
+                    <uc:CalendarItem Grid.Row="3" Margin="10 0" ItemTitle="Distr.System exam" ItemDate="20.07.23 | 09:00" ItemColor="#06d6a0"/>
+                    <uc:CalendarItem Grid.Row="4" Margin="10 0" ItemTitle="Car inspection" ItemDate="14.08.23 | 08:30" ItemColor="#ba324f"/>
+                </Grid>
             </Grid>
         </Border>
 
@@ -201,7 +234,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="40"/>
                 </Grid.ColumnDefinitions>
-                <Border Background="#a3bf50" CornerRadius="15 15 0 0" Grid.ColumnSpan="2" />
+                <Border Background="#ba324f" CornerRadius="15 15 0 0" Grid.ColumnSpan="2" />
                                  
                     <TextBlock Text="Todo" Foreground="#fffdf7" Margin="20 0 0 0"
                            VerticalAlignment="Center" FontSize="18" FontWeight="SemiBold"  />                
@@ -212,49 +245,22 @@
                 
                 <Grid Grid.Row="1" Grid.ColumnSpan="2">                    
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-
-                    <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
-                        <icon:PackIconMaterial Kind="CheckCircle" Width="14" Margin="10 0 0 0"
-                                         Foreground="Gray" VerticalAlignment="Center" />
-                        <TextBlock Text="Steuererklärung abgeben" FontSize="16" Foreground="#1e1b18" Margin="10 0 0 0" 
-                                   VerticalAlignment="Center" FontFamily="Segoi UI"
-                                   TextDecorations="Strikethrough"/>
-                        </StackPanel>
-                    <icon:PackIconMaterial Grid.Column="2" Grid.Row="0" Kind="DotsVertical" VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"/>
-
-                    <Separator VerticalAlignment="Bottom" Margin="40 0 0 0" Background="#dee2e6"/>
-
-                    <StackPanel Grid.Row="1"  Orientation="Horizontal" Margin="10 0 0 0">
-                        <icon:PackIconMaterial Kind="CircleOutline" Width="14" Margin="10 0 0 0"
-                                         Foreground="Gray" VerticalAlignment="Center" />
-                        <TextBlock Text="Hausmeister anrufen" FontSize="16" Foreground="#1e1b18" Margin="10 0 0 0" 
-                                   VerticalAlignment="Center" FontFamily="Segoi UI"  FontWeight="SemiBold"/>
-                        </StackPanel>
-                    <icon:PackIconMaterial Grid.Column="2" Grid.Row="1" Kind="DotsVertical" VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"/>
-
-                    <Separator Grid.Row="1" VerticalAlignment="Bottom" Margin="40 0 0 0" Background="#dee2e6"/>
-
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10 0 0 0">
-                        <icon:PackIconMaterial Kind="CircleOutline" Width="14" Margin="10 0 0 0"
-                                         Foreground="Gray" VerticalAlignment="Center" />
-                        <TextBlock Text="Bücher zurückgeben" FontSize="16" Foreground="#1e1b18" Margin="10 0 0 0" 
-                                   VerticalAlignment="Center" FontFamily="Segoi UI"  FontWeight="SemiBold"/>
-                        </StackPanel>
-                    <icon:PackIconMaterial Grid.Column="2" Grid.Row="2" Kind="DotsVertical" VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"/>
-
-                    <!--<CheckBox Margin="15 0 0 0" Style="{DynamicResource CheckBoxStyle1}" Grid.Row="4"></CheckBox>-->
+                    
+                    <uc:Item Grid.Row="0" Grid.ColumnSpan="2" Margin="20 5 11 5" Title="Fill and send tax declaration" BottomTitle="Until 01.10.2023"
+                                 TextStyle="Strikethrough"/>
+                    <Separator VerticalAlignment="Bottom" Margin="40 0 20 0" Background="#dee2e6"/>
+                    <uc:Item Grid.Row="1" Grid.ColumnSpan="2" Margin="20 5 11 5" Title="Call caretaker" BottomTitle="Mo, 8:00 - 9:00"
+                                 />
+                    <Separator Grid.Row="1" VerticalAlignment="Bottom" Margin="40 0 20 0" Background="#dee2e6"/>
 
                 </Grid>
             </Grid>
@@ -284,7 +290,7 @@
                            Foreground="White"/>
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="Skálmöld" Margin="10 0 0 0" FontSize="14" 
                            Foreground="#dee2e6"/>
-                        <ProgressBar Margin="10 50 20 0" Value="55" Foreground="#e5383b"/>
+                        <ProgressBar Margin="10 50 20 0" Value="55" Foreground="#ba324f"/>
                         <StackPanel Orientation="Horizontal" Margin="10 15 0 20" HorizontalAlignment="Center">
                             <icon:PackIconMaterial Kind="Shuffle" Foreground="White" Margin="0 0 20 0" />
                             <icon:PackIconMaterial Kind="SkipBackward" Foreground="White" Margin="0 0 20 0"/>
