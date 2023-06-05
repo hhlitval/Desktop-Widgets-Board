@@ -111,19 +111,19 @@
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="0" Content="Today" />
-                        <Image Grid.Row="1" Grid.Column="0" Source="C:\Users\sasha\Desktop\sunny.png" />
+                        <Image Grid.Row="1" Grid.Column="0" Source="\Images\sunny.png" Width="Auto" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="1" Content="Mon" />
-                        <Image Grid.Row="1" Grid.Column="1" Source="C:\Users\sasha\Desktop\sunny.png" />
+                        <Image Grid.Row="1" Grid.Column="1" Source="\Images\sunny.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="2" Content="Tue" />
-                        <Image Grid.Row="1" Grid.Column="2" Source="C:\Users\sasha\Desktop\changing.png" />
+                        <Image Grid.Row="1" Grid.Column="2" Source="\Images\rain.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="3" Content="Wed" />
-                        <Image Grid.Row="1" Grid.Column="3" Source="C:\Users\sasha\Desktop\changing.png" />
+                        <Image Grid.Row="1" Grid.Column="3" Source="\Images\cloudy.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="4" Content="Thu" />
-                        <Image Grid.Row="1" Grid.Column="4" Source="C:\Users\sasha\Desktop\rainy.png" />
+                        <Image Grid.Row="1" Grid.Column="4" Source="\Images\showers.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="5" Content="Fri" />
-                        <Image Grid.Row="1" Grid.Column="5" Source="C:\Users\sasha\Desktop\rain.png" />
+                        <Image Grid.Row="1" Grid.Column="5" Source="\Images\rain.png" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="0" Grid.Column="6" Content="Sat" />
-                        <Image Grid.Row="1" Grid.Column="6" Source="C:\Users\sasha\Desktop\rain.png" />
+                        <Image Grid.Row="1" Grid.Column="6" Source="\Images\rain.png" />
 
                         <Label Style="{StaticResource timeLabel}" Grid.Row="3" Grid.Column="0" Content="20°/11°" />
                         <Label Style="{StaticResource timeLabel}" Grid.Row="3" Grid.Column="1" Content="22°/13°" />
