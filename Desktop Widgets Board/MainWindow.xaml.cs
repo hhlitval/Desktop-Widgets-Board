@@ -27,6 +27,8 @@ namespace Desktop_Widgets_Board
         {
             InitializeComponent();  
         }
+
+        //Allows to drag window by clicking with the mouse left button
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -35,11 +37,13 @@ namespace Desktop_Widgets_Board
             }
         }
 
+        //Closing the application
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
+        //Allows to open a link from the quick access panel
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start(new ProcessStartInfo

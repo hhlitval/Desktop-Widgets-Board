@@ -6,21 +6,25 @@
              xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:local="clr-namespace:Desktop_Widgets_Board.UserControls"
              mc:Ignorable="d" Name="item">
-    <Grid>
+    <Grid>        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <CheckBox Style="{StaticResource CheckBoxStyle1}" Foreground="Transparent" VerticalAlignment="Center"/>
 
+        <!-- Check box for the task completion  -->
+        <CheckBox Style="{StaticResource CheckBoxStyle1}" Foreground="Transparent" VerticalAlignment="Center"/>
+        
+        <!-- Task's title and its deadline -->
         <StackPanel Grid.Column="1" Margin="10 0" VerticalAlignment="Center">
             <TextBlock FontSize="16" Foreground="#1e1b18" FontFamily="Segoi UI" FontWeight="SemiBold" Text="{Binding Path=Title, ElementName=item}" TextDecorations="{Binding Path=TextStyle, ElementName=item}"/>
             <StackPanel Orientation="Horizontal" Margin="0 2 0 0">
                 <TextBlock FontSize="14" FontFamily="Segoi UI" Foreground="#453f3a" Text="{Binding Path=BottomTitle, ElementName=item}" TextDecorations="{Binding Path=TextStyle, ElementName=item}"/>
             </StackPanel>
         </StackPanel>
-
+        
+        <!-- Menu button for editing/deleting of the task -->
         <ToggleButton x:Name="buttonMenu" Grid.Column="2">
             <ToggleButton.Template>
                 <ControlTemplate TargetType="ToggleButton">

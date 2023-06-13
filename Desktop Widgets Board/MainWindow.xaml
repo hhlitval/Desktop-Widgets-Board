@@ -26,7 +26,7 @@
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
         
-        <!-- App Control Panel -->
+        <!-- App's Control Panel -->
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
             <Button Margin="0 10 10 5" Click="Button_Click" Style="{StaticResource quickPanelButton}">
                 <icon:PackIconMaterial Kind="Close" Style="{StaticResource iconAppControl}"/>
@@ -140,32 +140,23 @@
 
         <!-- Quick Access Panel -->
         <Border Grid.Row="2" Background="#006ba6" CornerRadius="0 0 15 15" Margin="10 0 10 0">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-    
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">    
             <Button Click="Button_Click_1"
                     Style="{StaticResource quickPanelButton}">
                 <fa:ImageAwesome Icon="Github" Style="{StaticResource icon}"/>
             </Button>
-
-                <Button Style="{StaticResource quickPanelButton}">
-                    <fa:ImageAwesome Icon="YoutubePlay" Style="{StaticResource icon}" Margin="0 4 0 0" />
-                </Button>
-
-                
-
-                <Button Style="{StaticResource quickPanelButton}">
+            <Button Style="{StaticResource quickPanelButton}">
+                <fa:ImageAwesome Icon="YoutubePlay" Style="{StaticResource icon}" Margin="0 4 0 0" />
+            </Button>
+            <Button Style="{StaticResource quickPanelButton}">
                     <fa:ImageAwesome Icon="Amazon" Style="{StaticResource icon}" Margin="0 4 0 0" />
-                </Button>
-
-                
-
-                <Button Style="{StaticResource quickPanelButton}" > 
+            </Button>
+            <Button Style="{StaticResource quickPanelButton}" > 
                 <fa:ImageAwesome Icon="Xing" Style="{StaticResource icon}"/>
             </Button>
             <Button Style="{StaticResource quickPanelButton}">
                 <fa:ImageAwesome Icon="Linkedin" Style="{StaticResource icon}"/>
-            </Button>
-            
+            </Button>            
         </StackPanel>
         </Border>
 
@@ -186,9 +177,7 @@
                 <StackPanel Grid.Row="0" Grid.Column="0" >
                     <StackPanel Orientation="Horizontal" Margin="20 0 0 0">
                         <Label x:Name="label" Foreground="#1e1b18" FontSize="50" 
-                       Content="3" ContentStringFormat="dd" />
-                        <!--Content="{Binding ElementName=calendar, Path=SelectedDate, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"-->
-
+                       Content="3" ContentStringFormat="dd" />                       
                         <StackPanel Orientation="Vertical" Margin="0" VerticalAlignment="Center">
                             <Label Content="June" FontSize="20" Style="{StaticResource calendarDateLabel}" />
                             <Label Content="Saturday" Foreground="#6c757d" Style="{StaticResource calendarDateLabel}"/>
@@ -301,7 +290,6 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-
             </Grid>
         </Border>
     </Grid>

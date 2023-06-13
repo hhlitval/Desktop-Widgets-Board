@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Desktop_Widgets_Board.UserControls
 {
     /// <summary>
-    /// Interaction logic for Item.xaml
+    /// Definiton of dependenciy properties for Calendar Items
     /// </summary>
     public partial class CalendarItem : UserControl
     {

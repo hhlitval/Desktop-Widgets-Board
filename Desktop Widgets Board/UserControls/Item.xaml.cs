@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Desktop_Widgets_Board.UserControls
 {
     /// <summary>
-    /// Interaction logic for Item.xaml
+    /// Definiton of dependenciy properties for to-do widget's items 
     /// </summary>
     public partial class Item : UserControl
     {
